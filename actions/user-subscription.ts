@@ -31,13 +31,13 @@ export const createStripeUrl = async () => {
 
     const stripeSession = await stripe.checkout.sessions.create({
         mode: "subscription",
-        payment_method_types: ["card"],
+        allowed_payment_method_types: ["card"],
         customer_email: user.emailAddresses[0].emailAddress,
         line_items: [
             {
                 quantity: 1,
                 price_data: {
-                    currency: "USD",
+                    currency: "usd",
                     product_data: {
                         name: "Lingo Pro",
                         description: "Unlimited Hearts",
